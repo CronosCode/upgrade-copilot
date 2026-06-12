@@ -11,3 +11,5 @@ build/
 *.egg-info/
 extension/vscode/node_modules/
 extension/vscode/*.vsix
+pw
+pw.pub

@@ -4,7 +4,7 @@
   "description": "VS Code wrapper for the Upgrade Copilot service.",
   "version": "0.1.0",
   "publisher": "cronoscode",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "repository": {
     "type": "git",
     "url": "https://github.com/CronosCode/upgrade-copilot.git"
@@ -28,6 +28,11 @@
   "categories": [
     "Other"
   ],
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#126B67",
+    "theme": "dark"
+  },
   "activationEvents": [
     "onView:upgradeCopilot.panel",
     "onCommand:upgradeCopilot.open",
@@ -75,7 +80,7 @@
         {
           "id": "upgradeCopilot",
           "title": "Upgrade Copilot",
-          "icon": "media/icon.svg"
+          "icon": "media/icon.png"
         }
       ]
     },

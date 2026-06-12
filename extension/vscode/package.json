@@ -3,7 +3,25 @@
   "displayName": "Upgrade Copilot",
   "description": "VS Code wrapper for the Upgrade Copilot service.",
   "version": "0.1.0",
-  "publisher": "upgrade-copilot",
+  "publisher": "CronosCode",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CronosCode/upgrade-copilot.git"
+  },
+  "homepage": "https://github.com/CronosCode/upgrade-copilot#readme",
+  "bugs": {
+    "url": "https://github.com/CronosCode/upgrade-copilot/issues"
+  },
+  "keywords": [
+    "upgrade",
+    "migration",
+    "dependencies",
+    "copilot",
+    "pydantic",
+    "numpy",
+    "sqlalchemy"
+  ],
   "engines": {
     "vscode": "^1.89.0"
   },

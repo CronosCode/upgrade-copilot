@@ -3,7 +3,7 @@
   "displayName": "Upgrade Copilot",
   "description": "VS Code wrapper for the Upgrade Copilot service.",
   "version": "0.1.0",
-  "publisher": "CronosCode",
+  "publisher": "cronoscode",
   "license": "MIT",
   "repository": {
     "type": "git",

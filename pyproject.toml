@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "upgrade-copilot"
+version = "0.1.0"
+description = "Retrieval-first copilot for dependency upgrade guidance from official docs."
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+local-embeddings = ["sentence-transformers>=3.0"]
+vector = ["faiss-cpu>=1.8.0"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+upgrade-copilot = "upgrade_copilot.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

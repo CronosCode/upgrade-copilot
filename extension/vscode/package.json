@@ -1,0 +1,74 @@
+{
+  "name": "upgrade-copilot",
+  "displayName": "Upgrade Copilot",
+  "description": "VS Code wrapper for the Upgrade Copilot service.",
+  "version": "0.1.0",
+  "publisher": "upgrade-copilot",
+  "engines": {
+    "vscode": "^1.89.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:upgradeCopilot.panel",
+    "onCommand:upgradeCopilot.open",
+    "onCommand:upgradeCopilot.askSelection",
+    "onCommand:upgradeCopilot.health",
+    "onCommand:upgradeCopilot.buildIndex",
+    "onCommand:upgradeCopilot.scanWorkspace"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Upgrade Copilot",
+      "properties": {
+        "upgradeCopilot.serviceUrl": {
+          "type": "string",
+          "default": "http://127.0.0.1:8000",
+          "description": "Base URL for the running Upgrade Copilot service."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "upgradeCopilot.open",
+        "title": "Upgrade Copilot: Open"
+      },
+      {
+        "command": "upgradeCopilot.askSelection",
+        "title": "Upgrade Copilot: Ask About Selection"
+      },
+      {
+        "command": "upgradeCopilot.health",
+        "title": "Upgrade Copilot: Check Service"
+      },
+      {
+        "command": "upgradeCopilot.buildIndex",
+        "title": "Upgrade Copilot: Build Index"
+      },
+      {
+        "command": "upgradeCopilot.scanWorkspace",
+        "title": "Upgrade Copilot: Scan Workspace"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "upgradeCopilot",
+          "title": "Upgrade Copilot",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "upgradeCopilot": [
+        {
+          "id": "upgradeCopilot.panel",
+          "type": "webview",
+          "name": "Copilot"
+        }
+      ]
+    }
+  }
+}

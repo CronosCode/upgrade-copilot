@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: upgrade-copilot
+  labels:
+    app.kubernetes.io/name: upgrade-copilot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: upgrade-copilot
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: upgrade-copilot
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: upgrade-copilot
+          image: ghcr.io/your-org/upgrade-copilot:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8000
+          env:
+            - name: UPGRADE_COPILOT_HOST
+              value: 0.0.0.0
+            - name: UPGRADE_COPILOT_PORT
+              value: "8000"
+            - name: UPGRADE_COPILOT_INDEX_PATH
+              value: /app/data/index.json
+            - name: UPGRADE_COPILOT_CACHE_DIR
+              value: /app/data/cache
+            - name: UPGRADE_COPILOT_REPO_ROOT
+              value: /workspace
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: http
+            initialDelaySeconds: 3
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL

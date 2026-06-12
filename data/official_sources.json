@@ -1,0 +1,37 @@
+[
+  {
+    "source_id": "pydantic-v2-migration",
+    "library": "pydantic",
+    "title": "Pydantic V2 Migration Guide",
+    "url": "https://docs.pydantic.dev/latest/migration/",
+    "tags": ["migration", "official"]
+  },
+  {
+    "source_id": "sqlalchemy-20-migration",
+    "library": "sqlalchemy",
+    "title": "SQLAlchemy 2.0 Major Migration Guide",
+    "url": "https://docs.sqlalchemy.org/en/14/changelog/migration_20.html",
+    "tags": ["migration", "official"]
+  },
+  {
+    "source_id": "fastapi-pydantic-v2",
+    "library": "fastapi",
+    "title": "FastAPI How To: Migrate from Pydantic v1 to Pydantic v2",
+    "url": "https://fastapi.tiangolo.com/how-to/migrate-from-pydantic-v1-to-pydantic-v2/",
+    "tags": ["migration", "official"]
+  },
+  {
+    "source_id": "numpy-20-migration",
+    "library": "numpy",
+    "title": "NumPy 2.0 Migration Guide",
+    "url": "https://numpy.org/doc/stable/numpy_2_0_migration_guide.html",
+    "tags": ["migration", "official"]
+  },
+  {
+    "source_id": "pandas-20-whatsnew",
+    "library": "pandas",
+    "title": "What's New in pandas 2.0.0",
+    "url": "https://pandas.pydata.org/pandas-docs/version/2.0.0/whatsnew/v2.0.0.html",
+    "tags": ["breaking-changes", "official"]
+  }
+]

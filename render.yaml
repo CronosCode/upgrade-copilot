@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: upgrade-copilot
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /ready
+    envVars:
+      - key: UPGRADE_COPILOT_HOST
+        value: 0.0.0.0
+      - key: UPGRADE_COPILOT_INDEX_PATH
+        value: /app/data/index.json
+      - key: UPGRADE_COPILOT_CACHE_DIR
+        value: /app/data/cache
+      - key: UPGRADE_COPILOT_REPO_ROOT
+        value: /workspace

@@ -25,7 +25,7 @@
       "properties": {
         "upgradeCopilot.serviceUrl": {
           "type": "string",
-          "default": "http://127.0.0.1:8000",
+          "default": "https://upgrade-copilot.onrender.com",
           "description": "Base URL for the running Upgrade Copilot service."
         }
       }

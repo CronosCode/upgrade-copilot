@@ -139,7 +139,7 @@ docker build -t upgrade-copilot:local .
 docker run --rm -p 8000:8000 upgrade-copilot:local
 ```
 
-The image runs as a non-root user, includes the checked-in official source manifest, cached docs, and `data/index.json`, and exposes the service on port `8000`.
+The image runs as a non-root user, includes the checked-in official source manifest, cached docs, and `data/index.json`, and exposes the service on port `8000`. On Render, the service also honors Render's `PORT` environment variable.
 
 Runtime configuration is available through environment variables:
 
@@ -170,9 +170,9 @@ Development flow:
 code extension/vscode
 ```
 
-Press `F5` from that VS Code window to launch an Extension Development Host. The extension setting `upgradeCopilot.serviceUrl` defaults to `http://127.0.0.1:8000`.
+Press `F5` from that VS Code window to launch an Extension Development Host. The extension setting `upgradeCopilot.serviceUrl` defaults to `https://upgrade-copilot.onrender.com`.
 
-For hosted usage, deploy the Docker image somewhere reachable over HTTPS, then set `upgradeCopilot.serviceUrl` to that base URL. The extension can scan workspace dependency files locally and POST only those file contents to `/repo/scan`; the hosted service returns migration guidance without needing access to the full repository.
+For hosted usage, deploy the Docker image somewhere reachable over HTTPS, then set `upgradeCopilot.serviceUrl` to that base URL. This repo's extension is currently configured for `https://upgrade-copilot.onrender.com`. The extension can scan workspace dependency files locally and POST only those file contents to `/repo/scan`; the hosted service returns migration guidance without needing access to the full repository.
 
 Typical hosting path:
 

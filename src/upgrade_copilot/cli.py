@@ -84,7 +84,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     serve_parser = subparsers.add_parser("serve")
     serve_parser.add_argument("--host", default=os.environ.get("UPGRADE_COPILOT_HOST", "127.0.0.1"))
-    serve_parser.add_argument("--port", type=int, default=int(os.environ.get("UPGRADE_COPILOT_PORT", "8000")))
+    serve_parser.add_argument("--port", type=int, default=int(os.environ.get("UPGRADE_COPILOT_PORT") or os.environ.get("PORT", "8000")))
     serve_parser.add_argument("--index-path", type=Path, default=settings.index_path)
     serve_parser.add_argument("--cache-dir", type=Path, default=settings.cache_dir)
     serve_parser.add_argument("--repo-root", type=Path, default=settings.repo_root)

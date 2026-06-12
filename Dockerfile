@@ -4,7 +4,6 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PYTHONPATH=/app/src \
     UPGRADE_COPILOT_HOST=0.0.0.0 \
-    UPGRADE_COPILOT_PORT=8000 \
     UPGRADE_COPILOT_INDEX_PATH=/app/data/index.json \
     UPGRADE_COPILOT_CACHE_DIR=/app/data/cache \
     UPGRADE_COPILOT_REPO_ROOT=/workspace
@@ -27,6 +26,6 @@ USER 10001:10001
 EXPOSE 8000
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
-  CMD python -c "import json, urllib.request; json.load(urllib.request.urlopen('http://127.0.0.1:8000/ready', timeout=2))['ready']"
+  CMD python -c "import json, os, urllib.request; port=os.environ.get('UPGRADE_COPILOT_PORT') or os.environ.get('PORT') or '8000'; json.load(urllib.request.urlopen(f'http://127.0.0.1:{port}/ready', timeout=2))['ready']"
 
 CMD ["python", "-m", "upgrade_copilot.cli", "serve"]

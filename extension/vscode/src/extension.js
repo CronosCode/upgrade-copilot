@@ -1,5 +1,7 @@
 const vscode = require("vscode");
 
+const DEFAULT_SERVICE_URL = "https://upgrade-copilot.onrender.com";
+
 function activate(context) {
   const client = new UpgradeCopilotClient();
   const provider = new UpgradeCopilotViewProvider(context.extensionUri, client);
@@ -70,7 +72,7 @@ function deactivate() {}
 
 class UpgradeCopilotClient {
   baseUrl() {
-    return vscode.workspace.getConfiguration("upgradeCopilot").get("serviceUrl", "http://127.0.0.1:8000").replace(/\/+$/, "");
+    return vscode.workspace.getConfiguration("upgradeCopilot").get("serviceUrl", DEFAULT_SERVICE_URL).replace(/\/+$/, "");
   }
 
   async setBaseUrl(value) {
@@ -108,7 +110,7 @@ class UpgradeCopilotViewProvider {
     webviewView.webview.onDidReceiveMessage(async (message) => {
       try {
         if (message.type === "setUrl") {
-          await this.client.setBaseUrl(message.url || "http://127.0.0.1:8000");
+          await this.client.setBaseUrl(message.url || DEFAULT_SERVICE_URL);
           this.postState({ type: "result", action: "config", payload: { serviceUrl: this.client.baseUrl() } });
           return;
         }

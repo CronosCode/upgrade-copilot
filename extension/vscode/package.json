@@ -29,10 +29,6 @@
     "Other"
   ],
   "icon": "media/icon.png",
-  "galleryBanner": {
-    "color": "#126B67",
-    "theme": "dark"
-  },
   "activationEvents": [
     "onView:upgradeCopilot.panel",
     "onCommand:upgradeCopilot.open",
@@ -75,17 +71,8 @@
         "title": "Upgrade Copilot: Scan Workspace"
       }
     ],
-    "viewsContainers": {
-      "activitybar": [
-        {
-          "id": "upgradeCopilot",
-          "title": "Upgrade Copilot",
-          "icon": "media/icon.png"
-        }
-      ]
-    },
     "views": {
-      "upgradeCopilot": [
+      "explorer": [
         {
           "id": "upgradeCopilot.panel",
           "type": "webview",

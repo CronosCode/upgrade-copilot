@@ -16,7 +16,7 @@ function activate(context) {
     status,
     vscode.window.registerWebviewViewProvider("upgradeCopilot.panel", provider),
     vscode.commands.registerCommand("upgradeCopilot.open", async () => {
-      await vscode.commands.executeCommand("workbench.view.extension.upgradeCopilot");
+      await vscode.commands.executeCommand("workbench.view.explorer");
     }),
     vscode.commands.registerCommand("upgradeCopilot.health", async () => {
       await withProgress("Checking Upgrade Copilot", async () => {
